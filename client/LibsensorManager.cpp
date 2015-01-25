@@ -26,7 +26,10 @@ LibsensorManager::LibsensorManager(){
         int f = 0;
         while((feat = sensors_get_features(cn, &f)) != 0) {
             int s = 0;
+            
+            // this function call leaks memory... not sure if there's anything we can do about it
 			label = sensors_get_label(cn, feat);
+			
 			// TODO: optimize this by using the get_subfeature function so we don't have to loop
             while((subf = sensors_get_all_subfeatures(cn, feat, &s)) != 0) {
                 double val;
