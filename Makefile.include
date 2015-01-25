@@ -1,0 +1,4 @@
+CC=g++
+CFLAGS=-c -Wall -Wextra -Wpedantic
+CLIENT_EXECUTABLE=sreport_client
+SERVER_EXECUTABLE=sreport_server

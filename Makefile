@@ -1,21 +1,13 @@
-CC=g++
-CFLAGS=-c -Wall -Wextra -Wpedantic
-LDFLAGS=-lsensors
-SOURCES=sreport.cpp LibsensorManager.cpp LibsensorSensor.cpp
-OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=sreport
+include Makefile.include
 
-all: $(SOURCES) $(EXECUTABLE)
+all: $(CLIENT_EXECUTABLE) $(SERVER_EXECUTABLE)
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $@ $(LDFLAGS) 
-
-.cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
-
-clean:
-	rm -f $(OBJECTS) $(EXECUTABLE)
-
-test: clean all
-	./$(EXECUTABLE)
+$(CLIENT_EXECUTABLE): client
+	make -C client
 	
+$(SERVER_EXECUTABLE): server
+	make -C server
+	
+clean:
+	make -C client clean
+	make -C server clean
