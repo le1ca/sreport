@@ -14,6 +14,12 @@ string LibsensorSensor::getName(){
 	return name;
 }
 
+string LibsensorSensor::getGroup(){
+	char b[256];
+	sensors_snprintf_chip_name(b, 256, chip);
+	return string(b);
+}
+
 string LibsensorSensor::getLabel(){
 	return label;
 }
@@ -27,6 +33,7 @@ double LibsensorSensor::getValue(){
 		return -1;
 	return val;
 }
+
 void LibsensorSensor::setLabel(string label){
 	this->label = label;
 }

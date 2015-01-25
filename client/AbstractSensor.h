@@ -4,6 +4,7 @@ class AbstractSensor {
   public:
   	virtual double getValue() = 0;
 	virtual std::string getName() = 0;
+	virtual std::string getGroup() = 0;
 	virtual std::string getLabel() = 0;
 	virtual void setLabel(std::string label) = 0;
 };

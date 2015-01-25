@@ -12,6 +12,7 @@ class LibsensorSensor : public AbstractSensor {
   	LibsensorSensor(std::string name, std::string label, sensors_chip_name const * chip, int num);
 	double getValue();
 	std::string getName();
+	std::string getGroup();
 	std::string getLabel();
 	void setLabel(std::string label);
 };
