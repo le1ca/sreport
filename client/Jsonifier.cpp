@@ -41,6 +41,13 @@ void Jsonifier::add_array(std::string k, JsonEntry *v, int len){
 	vals[k]   = e;
 }
 
+void Jsonifier::add_object(std::string k, Jsonifier *o){
+	JsonEntry e;
+	e.t = JSON_OBJECT;
+	e.d.o = o;
+	vals[k] = e;
+}
+
 void Jsonifier::print_entry(JsonEntry *e){
 	switch(e->t){
 		

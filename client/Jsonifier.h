@@ -18,6 +18,7 @@ class Jsonifier {
     void add_string(std::string k, std::string v);
     void add_array(std::string k, JsonEntry *v, int len);
     void add_float(std::string k, double v);
+    void add_object(std::string k, Jsonifier *o);
     // TODO: add methods for other types
 	void print();
 };
